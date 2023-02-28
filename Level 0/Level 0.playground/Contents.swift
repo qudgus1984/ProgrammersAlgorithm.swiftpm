@@ -50,3 +50,17 @@ func solution(_ my_str:String, _ n:Int) -> [String] {
     return arr
 }
 
+//MARK: 컨트롤 제트
+
+func solution(_ s:String) -> Int {
+    var arr =  s.components(separatedBy: " ")
+    var result: [String] = []
+    for i in 0...arr.count - 1 {
+        if arr[i] == "Z" {
+            result.append(String(-Int(arr[i - 1])!))
+        } else {
+            result.append(arr[i])
+        }
+    }
+    return result.map { Int($0)!}.reduce(0, +)
+}
