@@ -64,3 +64,17 @@ func solution(_ s:String) -> Int {
     }
     return result.map { Int($0)!}.reduce(0, +)
 }
+
+//MARK: 문자열 계산하기
+func solution(_ my_string:String) -> Int {
+    var arr = my_string.components(separatedBy: " ")
+    var result = Int(String(arr[0]))!
+    for i in 0...arr.count - 1 {
+        if arr[i] == "+" {
+            result += Int(String(arr[i + 1]))!
+        } else if arr[i] == "-" {
+            result -= Int(String(arr[i + 1]))!
+        }
+    }
+    return result
+}
