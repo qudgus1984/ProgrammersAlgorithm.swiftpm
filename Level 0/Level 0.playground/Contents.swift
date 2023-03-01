@@ -133,3 +133,18 @@ func solution(_ keyinput:[String], _ board:[Int]) -> [Int] {
     }
     return arr
 }
+
+//MARK: 로그인 성공?
+
+func solution(_ id_pw:[String], _ db:[[String]]) -> String {
+    for i in 0...db.count - 1 {
+        if id_pw[0] == db[i][0] {
+            if db[i][1] == id_pw[1] {
+                return "login"
+            } else {
+                return "wrong pw"
+            }
+        }
+    }
+    return "fail"
+}
