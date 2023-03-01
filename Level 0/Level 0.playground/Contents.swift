@@ -78,3 +78,30 @@ func solution(_ my_string:String) -> Int {
     }
     return result
 }
+
+func solution(_ balls:Int, _ share:Int) -> Int {
+    var arr: [NSDecimalNumber] = []
+    for i in 0...share - 1 {
+        arr.append(NSDecimalNumber(balls - i))
+    }
+    var x = arr.reduce(NSDecimalNumber(1), *)
+    var y = NSDecimalNumber((1...share).reduce(1,*))
+    return Int(x / y)
+
+}
+
+//MARK: 삼각형의 완성조건 (2)
+func solution(_ sides:[Int]) -> Int {
+    var arr: [Int] = []
+    for i in 1..<sides[0] + sides[1] {
+        if i < sides.max()! {
+            if i + sides.min()! > sides.max()! {
+                arr.append(i)
+            }
+        } else {
+            arr.append(i)
+        }
+    }
+    print(arr)
+    return arr.count
+}
