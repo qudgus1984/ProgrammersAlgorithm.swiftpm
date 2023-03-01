@@ -148,3 +148,13 @@ func solution(_ id_pw:[String], _ db:[[String]]) -> String {
     }
     return "fail"
 }
+
+//MARK: 치킨 쿠폰
+
+func solution(_ chicken:Int) -> Int {
+    if chicken < 10 {
+        return 0
+    } else {
+        return (chicken - 10) / 9 + 1
+    }
+}
