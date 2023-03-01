@@ -105,3 +105,31 @@ func solution(_ sides:[Int]) -> Int {
     print(arr)
     return arr.count
 }
+
+//MARK: 캐릭터의 좌표
+func solution(_ keyinput:[String], _ board:[Int]) -> [Int] {
+    var arr = [0,0]
+    var x = (board[0] - 1) / 2
+    var y = (board[1] - 1) / 2
+    
+    for i in keyinput {
+        if i == "right" {
+            if arr[0] < x {
+                arr[0] += 1
+            }
+        } else if i == "left" {
+            if arr[0] > -x  {
+                arr[0] -= 1
+            }
+        } else if i == "up" {
+            if arr[1] < y {
+                arr[1] += 1
+            }
+        } else if i == "down" {
+            if arr[1] > -y {
+                arr[1] -= 1
+            }
+        }
+    }
+    return arr
+}
