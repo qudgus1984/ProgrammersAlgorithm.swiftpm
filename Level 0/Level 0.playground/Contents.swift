@@ -159,6 +159,26 @@ func solution(_ chicken:Int) -> Int {
     }
 }
 
+//MARK: 등수 매기기
+
+func solution(_ score:[[Int]]) -> [Int] {
+    var arr: [Double] = []
+    for i in score {
+        arr.append(Double(i[0] + i[1]) / 2)
+    }
+    
+    var ranks = Array(repeating: 1, count: score.count)
+    for i in 0..<arr.count {
+        for j in 0..<arr.count {
+            if i == j { continue }
+            if arr[i] < arr[j] {
+                ranks[i] += 1
+            }
+        }
+    }
+    return ranks
+}
+
 //MARK: 문자열 밀기
 func shiftString(_ s: String) -> String {
     let arr = Array(s)
