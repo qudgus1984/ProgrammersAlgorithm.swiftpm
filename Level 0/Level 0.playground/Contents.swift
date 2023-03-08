@@ -158,3 +158,25 @@ func solution(_ chicken:Int) -> Int {
         return (chicken - 10) / 9 + 1
     }
 }
+
+//MARK: 문자열 밀기
+func shiftString(_ s: String) -> String {
+    let arr = Array(s)
+    var shiftedArr = arr
+    shiftedArr.removeLast()
+    shiftedArr.insert(arr.last!, at: 0)
+    return String(shiftedArr)
+}
+
+func solution(_ A:String, _ B:String) -> Int {
+    var shifted = A
+    var count = 0
+    while shifted != B {
+        shifted = shiftString(shifted)
+        count += 1
+        if count > A.count {
+            return -1
+        }
+    }
+    return count
+}
