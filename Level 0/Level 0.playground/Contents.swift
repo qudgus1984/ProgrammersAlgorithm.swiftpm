@@ -30,7 +30,7 @@ func solution(_ numbers:[Int], _ k:Int) -> Int {
 func solution(_ numbers:[Int], _ k:Int) -> Int {
     return numbers[((k-1)*2) % numbers.count]
 }
-*/
+
 
 //MARK: 잘라서 배열로 저장하기
 func solution(_ my_str:String, _ n:Int) -> [String] {
@@ -200,3 +200,42 @@ func solution(_ A:String, _ B:String) -> Int {
     }
     return count
 }
+
+ */
+
+func solution(_ polynomial:String) -> String {
+    var arr = polynomial.components(separatedBy: " ")
+    var num = 0
+    var numX = 0
+    for i in arr {
+        if Int(i) != nil {
+            num += Int(i)!
+        } else if i.contains("x") {
+            if i == "x" {
+                numX += 1
+            } else {
+                numX += Int(String(i.dropLast()))!
+            }
+        }
+    }
+    
+    switch (num, numX) {
+    case let(x,y) where x == 0 && y != 0 && y != 1:
+        return "\(numX)x"
+    case let(x,y) where x != 0 && y == 0:
+        return "\(num)"
+    case let(x,y) where x != 0 && y != 0 && y != 1:
+        return "\(numX)x + \(num)"
+    case let(x,y) where x == 0 && y == 0:
+        return ""
+    case let(x,y) where x == 0 && y == 1:
+        return "x"
+    case let(x,y) where x != 0 && y == 1:
+        return "x + \(num)"
+
+    case (_, _):
+        return ""
+    }
+}
+
+solution("3x + 7 + x")
