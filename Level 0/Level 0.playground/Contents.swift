@@ -201,7 +201,7 @@ func solution(_ A:String, _ B:String) -> Int {
     return count
 }
 
- */
+
 
 func solution(_ polynomial:String) -> String {
     var arr = polynomial.components(separatedBy: " ")
@@ -237,5 +237,38 @@ func solution(_ polynomial:String) -> String {
         return ""
     }
 }
+*/
 
-solution("3x + 7 + x")
+func solution(_ array:[Int]) -> Int {
+    // 각 숫자의 개수를 세는 딕셔너리
+    var dict: [Int: Int] = [:]
+    
+    // 배열을 순회하면서 각 숫자의 개수를 센다.
+    for num in array {
+        if let count = dict[num] {
+            dict[num] = count + 1
+        } else {
+            dict[num] = 1
+        }
+    }
+    
+    // 최빈값을 찾는다.
+    var maxCount = 0
+    var mode = -1
+    for (num, count) in dict {
+        if count > maxCount {
+            maxCount = count
+            mode = num
+        }
+    }
+    
+    // 최빈값이 여러 개인지 확인한다.
+    var count = 0
+    for (_, c) in dict {
+        if c == maxCount {
+            count += 1
+        }
+    }
+    
+    return count > 1 ? -1 : mode
+}
