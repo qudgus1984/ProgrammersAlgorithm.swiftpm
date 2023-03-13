@@ -312,3 +312,13 @@ func solution(_ my_string:String) -> Int {
     return my_string.split(whereSeparator: { !$0.isNumber }).reduce(0) { $0 + Int($1)! }
 }
 */
+
+func solution(_ myString: String) -> String {
+    var uniqueChars = ""
+    for char in myString {
+        if !uniqueChars.contains(char) {
+            uniqueChars.append(char)
+        }
+    }
+    return uniqueChars
+}
