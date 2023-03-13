@@ -307,8 +307,8 @@ func solution(_ common:[Int]) -> Int {
         return common[common.count - 1] * (arr[1] / arr[0])
     }
 }
- */
 
 func solution(_ my_string:String) -> Int {
     return my_string.split(whereSeparator: { !$0.isNumber }).reduce(0) { $0 + Int($1)! }
 }
+*/
