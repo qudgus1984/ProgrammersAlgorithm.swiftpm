@@ -272,7 +272,6 @@ import Foundation
  
  return count > 1 ? -1 : mode
  }
- */
 
 func solution(_ quiz:[String]) -> [String] {
     var resultArr: [String] = []
@@ -298,4 +297,18 @@ func solution(_ quiz:[String]) -> [String] {
     return resultArr
 }
 
+func solution(_ common:[Int]) -> Int {
+    let arr = [common[0],common[1],common[2]]
+    let arr2 = [common[1] - common[0],common[2] - common[1]]
 
+    if arr2[0] == arr2[1] {
+        return common[common.count - 1] + arr2[0]
+    } else {
+        return common[common.count - 1] * (arr[1] / arr[0])
+    }
+}
+ */
+
+func solution(_ my_string:String) -> Int {
+    return my_string.split(whereSeparator: { !$0.isNumber }).reduce(0) { $0 + Int($1)! }
+}
